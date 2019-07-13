@@ -1,0 +1,45 @@
+user  willresen staff;
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        listen       8080;
+        server_name  localhost;
+
+        location / {
+            root   "/Users/willresen/Desktop/FEC Project/willresen_proxy/public";
+            index  index.html index.htm;
+        }
+
+        location /api/featured_movie {
+            proxy_pass   http://localhost:3001/;
+        }
+
+        location /api/cast_crew {
+            proxy_pass   http://localhost:3000/;
+        }
+
+        location /api/rand {
+            proxy_pass   http://localhost:3001/api/rand/;
+        }
+
+        location /api/movies {
+            proxy_pass   http://localhost:3000/api/movies;
+        }
+
+        location /api/personnel {
+            proxy_pass   http://localhost:3000/api/personnel;
+        }
+
+    }
+    include servers/*;
+}
