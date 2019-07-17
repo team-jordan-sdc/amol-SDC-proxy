@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -d"
+    "build": "webpack -d",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/fec1-arwen/willresen_proxy#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"
