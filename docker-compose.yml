@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  willresen_proxy:
+    build:
+      context: .
+    image: proxy:latest
+    container_name: proxy
+    environment:
+      - CASTCREW_ADDR=http://castandcrew:3000
+      - REVIEWS_ADDR=http://localhost:3001
+      - FEATURED_ADDR=http://localhost:3002
+    ports:
+    - "8080:8080"
+
+networks:
+  default:
+    external:
+      name: cast-and-crew_default
