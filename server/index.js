@@ -3,11 +3,16 @@ const proxy = require('express-http-proxy');
 const app = express();
 const port = 8080;
 
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'public, max-age=31557600');
+  next();
+});
+
 app.use('*.js', (req, res, next) => {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   next();
-})
+});
 
 app.use(express.static('./public'));
 
