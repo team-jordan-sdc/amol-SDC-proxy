@@ -3,6 +3,12 @@ const proxy = require('express-http-proxy');
 const app = express();
 const port = 8080;
 
+app.use('*.js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+})
+
 app.use(express.static('./public'));
 
 app.use('/api/movies', proxy(process.env.CASTCREW_ADDR, { proxyReqPathResolver: (req) => `/api/movies${req.url}`}));
