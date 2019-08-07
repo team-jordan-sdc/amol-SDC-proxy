@@ -1,14 +1,18 @@
-FROM node:8-jessie
-RUN git clone https://github.com/fec1-arwen/reviews.git
-RUN cd ./reviews && npm install && cd ..
-RUN git clone https://github.com/fec1-arwen/FeaturedFilm.git
-RUN cd ./FeaturedFilm && npm install && cd ..
-RUN git clone https://github.com/fec1-arwen/cast-and-crew.git
-RUN cd ./cast-and-crew && npm install && cd ..
-WORKDIR /proxy
-COPY package.json .
-RUN npm install
-COPY . .
+# base image
+FROM node:10.15.3
+
+# set working directory
+WORKDIR /app
+ADD . /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install and cache app dependencies
+COPY package.json ./package.json
+RUN npm install --silent
+
 EXPOSE 8080
-RUN npm run build
-CMD ["node", "server/index.js"]
+
+# start app
+CMD ["npm", "start"]
