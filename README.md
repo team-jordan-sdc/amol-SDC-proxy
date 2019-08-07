@@ -1,3 +1,3 @@
-# willresen_proxy
+# amol-SDC-proxy
 
-A reverse proxy for fec1-arwen.
+A reverse proxy for sdc-jordan.
