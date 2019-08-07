@@ -1,7 +1,7 @@
 {
   "name": "willresen_proxy",
   "version": "1.0.0",
-  "description": "A reverse proxy for fec1-arwen.",
+  "description": "A reverse proxy for fec1-arwen -> modified for sdc.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,17 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fec1-arwen/willresen_proxy.git"
+    "url": "https://github.com/team-jordan-sdc/amol-SDC-proxy"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fec1-arwen/willresen_proxy/issues"
+    "url": "https://github.com/team-jordan-sdc/amol-SDC-proxy/issues"
   },
-  "homepage": "https://github.com/fec1-arwen/willresen_proxy#readme",
+  "homepage": "https://github.com/team-jordan-sdc/amol-SDC-proxy#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-http-proxy": "^1.5.1",
+    "newrelic": "^5.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"
