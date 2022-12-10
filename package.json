@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/team-jordan-sdc/amol-SDC-proxy#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-http-proxy": "^1.5.1",
     "newrelic": "^5.11.0",
     "react": "^16.8.6",
